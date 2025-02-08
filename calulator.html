@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>calulator</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<style>
+		
+	*{
+	margin:0;
+	padding:0;
+	font-family:sans-serif; 
+	box-sizing:border-box;
+	outline:none;
+	}
+	.container{
+		height:100vh;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		
+	}
+	.calulator{
+	background-color:#3a4452;
+	padding:20px;
+	border-radius:30px;
+	box-shadow: inset 5px 5px 12px #ffffff,
+					  5px 5px 12px rgba(0,0,0,.16);
+	display:grid;
+	grid-template-columns: repeat(4,70px);
+	}
+	input{
+	grid-column:span 4;
+	height: 50px;
+	width:260px;
+	background-color:transparent:
+	box-shadow: inset -5px -5px 12px #ffffff,
+					   5px 5px 12px rgba(0,0,0,.16);
+	border:none;
+	border-radius:30px;
+	color:#1ec7b6;
+	font-size:50px;
+	text-align:end;
+	margin:auto;
+	margin-left:40px;
+	margin-bottom:30px;
+	padding:20px;
+	}
+	.b1{
+		border:0;
+		outline:0;
+		width:60px;
+		height:60px;
+		border-radius:10px;
+		box-shadow:-8px -8px 15px rgba(255,255,255,0.1),5px 5px 15px rgba(0,0,0,0.2);
+		background:transparent;	
+		font-size:20px;
+		color:white;
+		cursor:pointer;
+		margin:10px;
+	}
+		
+	.display
+    {
+		margin:10px;
+		background:transparent;
+        width:250px;
+    }
+
+		</style>
+    </head>
+    <body>
+        <div class= "container">
+			<div class="calulator">         	
+			<input type="text" placeholder="0"class="display" id="op">
+			<button  class="b1" onclick="Clear()">AC</button>
+			<button class="b1" onclick="del()">DE</button>
+			<button class="b1" onclick="display('.')">.</button>
+			<button class="b1" onclick="display('/')">/</button>
+			<button class="b1" onclick="display('7')">7</button>
+			<button class="b1" onclick="display('8')">8</button>
+			<button class="b1" onclick="display('9')">9</button>
+			<button class="b1" onclick="display('-')">-</button>
+			<button class="b1" onclick="display('4')">4</button>
+			<button class="b1" onclick="display('5')">5</button>
+			<button class="b1" onclick="display('6')">6</button>
+			<button class="b1" onclick="display('+')">+</button>
+			<button class="b1" onclick="display('1')">1</button>
+			<button class="b1" onclick="display('2')">2</button>
+			<button class="b1" onclick="display('3')">3</button>
+			<button class="b1" onclick="display('*')">*</button>
+			<button class="b1" onclick="display('0')">0</button>
+			<button class="b1" onclick="display('00')">00</button>
+			<button class="b1" onclick="Calulator()">=</button>
+			</div> 
+		</div>
+		<script>
+		let op = document.getElementById("op");
+		
+		function display(num){
+			op.value+=num;
+			}
+		function Calulator(){
+			try{
+				op.value=eval(op.value);
+			}
+			catch(err)
+			{
+				alert("Invaild")
+			}
+		}
+		function Clear(){
+				op.value="";
+		}
+		function del(){
+			op.value=op.value.slice(0,-1);
+		}
+		</script>
+    </body>
+</html>
